@@ -1,33 +1,24 @@
+//import {calculateTotal} from "./lib.js";
+
 const nameEl = document.getElementById('name');
 const priceEl = document.getElementById('price');
 const catEl = document.getElementById('cat');
 const button = document.getElementById('add');
-const list = document.getElementById('list');
 const table = document.getElementById('table');
+const count = document.getElementById('count');
+const total =document.getElementById('total');
+let scoreTotal = 0;
 
 button.addEventListener('click', () => {
     const name = nameEl.value;
-    console.log(nameEl);
-    console.log(name);
 
-    const price = Number(priceEl.value);
-    console.log(price);
-    console.log(typeof price);
+    const price = Number (priceEl.value);
 
     const cat = catEl.value;
 
-    // const li = document.createElement('li');
-    // li.textContent = name + '  ' + cat + '  ' + price;
-    // li.className = 'list-group-item';
-    // list.appendChild(li);
 
     const tr = document.createElement('tr');
-    tr.idName = 'tr';
     table.appendChild(tr);
-    console.log(tr);
-    console.log(table);
-
-    // const td = document.getElementById('tr');
 
     const tName = document.createElement("td");
     tName.textContent = name;
@@ -38,7 +29,7 @@ button.addEventListener('click', () => {
     tr.appendChild(tCat);
 
     const tPrice = document.createElement('td');
-    tPrice.textContent = price;
+    tPrice.textContent =price;
     tr.appendChild(tPrice);
 
     const tButton = document.createElement('button');
@@ -46,14 +37,33 @@ button.addEventListener('click', () => {
     tButton.className = "btn btn-warning btn-sm";
     tr.appendChild(tButton);
 
+
+    // total.textContent = Number(price) + scoreTotal;
+    // scoreTotal =+ price;
+
     nameEl.value ='';
     catEl.value = '';
     priceEl.value = '';
 
-    tButton.addEventListener('click',()=>{
-        table.removeChild(tr);
+    count.textContent = table.rows.length;
+    console.dir(table.rows);
 
-    })
+total.textContent
+
+
+    tButton.addEventListener('click',()=>{
+
+        scoreTotal = scoreTotal - 1;
+        table.removeChild(tr);
+        count.textContent = count.textContent - 1;
+
+    });
+
+//     const testV = table.rows[length - 1].cells[2];
+   //  console.log(testV.textContent);
+
+
+
 });
 
 

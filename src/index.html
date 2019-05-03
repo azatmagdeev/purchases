@@ -28,24 +28,17 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-3"><input type="text" class="form-control" placeholder="name" id="name"
-                                                     autofocus></div>
+                                                     autofocus required ></div>
                         <div class="col-sm-3"><input type="text" class="form-control" placeholder="category" id="cat"
-                                                     autofocus></div>
+                                                     required></div>
                         <div class="col-sm-3"><input type="number" class="form-control" placeholder="price" id="price"
-                                                     autofocus></div>
+                                                     autofocus required></div>
 
                         <div class="col-sm-3">
                             <button class="btn btn-block btn-primary" id="add">Add</button>
                         </div>
                     </div>
                 </div>
-<!--                <div class="row">-->
-<!--                    <div class="col">-->
-<!--                        <ol class="list-group mt-3" id="list">-->
-<!--                            <li class='list-group-item'>test string</li>-->
-<!--                        </ol>-->
-<!--                    </div>-->
-<!--                </div>-->
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -56,50 +49,14 @@
                     </tr>
                     </thead>
                     <tbody id="table">
-<!--                    <tr>-->
-<!--                        <td>Bigmac</td>-->
-<!--                        <td>food</td>-->
-<!--                        <td>200</td>-->
-<!--                        <td>-->
-<!--                            <button class="btn btn-warning btn-sm">x</button>-->
-<!--                        </td>-->
-<!--                    </tr>-->
+
+                    <!-- здесь будет таблица покупок-->
 
                     </tbody>
                 </table>
-                <table class="table table-bordered">
-                    <tbody>
-                    <tr>
-                        <td colspan="3"><b>Most expensive purchase:</b></td>
-                    </tr>
-                    <tr>
-                        <td>iPhone</td>
-                        <td>gadgets</td>
-                        <td>100000</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><b>Most expensive category:</b></td>
-                    </tr>
-                    <tr>
-                        <td>gadgets</td>
-                        <td></td>
-                        <td>100000</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><b>Stats:</b></td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td></td>
-                        <td>20000</td>
-                    </tr>
-                    <tr>
-                        <td>Count</td>
-                        <td></td>
-                        <td>2</td>
-                    </tr>
-                    </tbody>
-                </table>
+
+
+
 
             </main>
             <!-- ASIDE -->
@@ -107,6 +64,36 @@
                 <div class="row">
                     <!-- ASIDE #1 -->
                     <aside class="col-sm-6 col-md-12">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <td colspan="3"><b>Most expensive purchase:</b></td>
+                            </tr>
+                            <tr>
+                                <td id="">iPhone</td>
+                                <td>gadgets</td>
+                                <td align="right">0</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><b>Most expensive category:</b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">gadgets</td>
+                                <td align="right">0</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><b>Stats:</b></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Total</td>
+                                <td id="total" align="right">0</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Count</td>
+                                <td id="count" align="right">0</td>
+                            </tr>
+                            </tbody>
+                        </table>
 
                     </aside>
                     <!-- ASIDE #2 -->
