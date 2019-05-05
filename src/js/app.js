@@ -11,14 +11,12 @@ let scoreTotal = 0;
 
 button.addEventListener('click', () => {
     const name = nameEl.value;
-
     const price = Number (priceEl.value);
-
     const cat = catEl.value;
-
 
     const tr = document.createElement('tr');
     table.appendChild(tr);
+    console.log(tr);
 
     const tName = document.createElement("td");
     tName.textContent = name;
@@ -29,42 +27,36 @@ button.addEventListener('click', () => {
     tr.appendChild(tCat);
 
     const tPrice = document.createElement('td');
-    tPrice.textContent =price;
+    tPrice.textContent = price;
     tr.appendChild(tPrice);
+    scoreTotal = scoreTotal + price;
+    total.textContent = scoreTotal;
 
     const tButton = document.createElement('button');
     tButton.textContent = 'x';
     tButton.className = "btn btn-warning btn-sm";
     tr.appendChild(tButton);
 
+    console.log(tr);
+    console.dir(tr);
+    console.log(tr.children[2].textContent);
+    console.log(table.rows);
 
-    // total.textContent = Number(price) + scoreTotal;
-    // scoreTotal =+ price;
-
-    nameEl.value ='';
-    catEl.value = '';
-    priceEl.value = '';
+    nameEl.value = catEl.value = priceEl.value = '';
 
     count.textContent = table.rows.length;
-    console.dir(table.rows);
-
-total.textContent
 
 
     tButton.addEventListener('click',()=>{
 
-        scoreTotal = scoreTotal - 1;
+        scoreTotal = scoreTotal - Number(tr.children[2].textContent);
+        total.textContent = scoreTotal;
         table.removeChild(tr);
-        count.textContent = count.textContent - 1;
+        count.textContent = table.rows.length;
 
     });
-
-//     const testV = table.rows[length - 1].cells[2];
-   //  console.log(testV.textContent);
-
-
-
 });
+
 
 
 
