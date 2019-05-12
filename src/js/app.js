@@ -11,6 +11,8 @@ const arr = [];
 const mostExpCat = document.getElementById('mostExpCat');
 let cp = {};
 let result = {};
+import {findMaxCat} from "./lib.js";
+import {findMaxCatName} from "./lib.js";
 
 
 button.addEventListener('click', () => {
@@ -76,29 +78,6 @@ button.addEventListener('click', () => {
             });
         }
 
-        // вычисляю наибольшее значение среди свойств
-        function findMaxCat(result) {
-            let maxCat = 0;
-            for (let key in result) {
-                if (result[key] > maxCat) {
-                    maxCat = result[key];
-                }
-            }
-            return maxCat;
-        }
-
-        //вычисляю имя свойства с наибольшим значением
-        function findMaxCatName(result) {
-            let maxCat = 0;
-            let maxCatName = '';
-            for (let key in result) {
-                if (result[key] > maxCat) {
-                    maxCat = result[key];
-                    maxCatName = key;
-                }
-            }
-            return maxCatName;
-        }
         //вывожу имя и значение максимальной категории
         mostExpCat.children[0].textContent = findMaxCatName(result);
         mostExpCat.children[1].textContent = findMaxCat(result);
@@ -143,34 +122,10 @@ button.addEventListener('click', () => {
                     return sum + current
                 });
             }
-            console.log(result);
-
-            function findMaxCat(result) {
-                let maxCat = 0;
-                for (let key in result) {
-                    if (result[key] > maxCat) {
-                        maxCat = result[key];
-                    }
-                }
-                return maxCat;
-            }
-
-            function findMaxCatName(result) {
-                let maxCat = 0;
-                let maxCatName = '';
-                for (let key in result) {
-                    if (result[key] > maxCat) {
-                        maxCat = result[key];
-                        maxCatName = key;
-                    }
-                }
-                return maxCatName;
-            }
 
             mostExpCat.children[0].textContent = findMaxCatName(result);
             mostExpCat.children[1].textContent = findMaxCat(result);
         });
 
     }
-)
-;
+);
