@@ -1,6 +1,6 @@
-const nameEl = document.getElementById('name');
-const priceEl = document.getElementById('price');
-const catEl = document.getElementById('cat');
+const name = document.getElementById('name');
+const price = document.getElementById('price');
+const cat = document.getElementById('cat');
 const button = document.getElementById('add');
 const table = document.getElementById('table');
 const count = document.getElementById('count');
@@ -19,9 +19,9 @@ button.addEventListener('click', () => {
 
         //создаю объект имя-категория-цена
         const ncp = {
-            name: nameEl.value,
-            cat: catEl.value,
-            price: Number(priceEl.value),
+            name: name.value,
+            cat: cat.value,
+            price: Number(price.value),
         };
         arr.push(ncp); //добавляю в массив объектов
 
@@ -53,7 +53,7 @@ button.addEventListener('click', () => {
         tButton.className = "btn btn-warning btn-sm";
         tr.appendChild(tButton);//создаю кнопку удаления в строке
 
-        nameEl.value = catEl.value = priceEl.value = '';//очищаю поля ввода
+        name.value = cat.value = price.value = '';//очищаю поля ввода
 
         count.textContent = table.rows.length;//вывожу количество покупок-строк в таблице
         scoreTotal = scoreTotal + ncp.price; //тотал увеличиваю на цену
