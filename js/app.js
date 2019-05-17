@@ -1,3 +1,6 @@
+import {findMaxCat} from "./lib.js";
+import {findMaxCatName} from "./lib.js";
+
 const name = document.getElementById('name');
 const price = document.getElementById('price');
 const cat = document.getElementById('cat');
@@ -6,14 +9,12 @@ const table = document.getElementById('table');
 const count = document.getElementById('count');
 const total = document.getElementById('total');
 const mostExpPur = document.getElementById('mostExpPur');
+const mostExpCat = document.getElementById('mostExpCat');
+
 let scoreTotal = 0;
 const arr = [];
-const mostExpCat = document.getElementById('mostExpCat');
 let catPrice = {};
 let result = {};
-import {findMaxCat} from "./lib.js";
-import {findMaxCatName} from "./lib.js";
-
 
 button.addEventListener('click', () => {
 
