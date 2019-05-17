@@ -9,7 +9,7 @@ const mostExpPur = document.getElementById('mostExpPur');
 let scoreTotal = 0;
 const arr = [];
 const mostExpCat = document.getElementById('mostExpCat');
-let cp = {};
+let catPrice = {};
 let result = {};
 import {findMaxCat} from "./lib.js";
 import {findMaxCatName} from "./lib.js";
@@ -62,18 +62,18 @@ button.addEventListener('click', () => {
         //!вычисляю дорогую категорию
         //создаю массивы из категорий
         for (let i = 0; i < table.rows.length; i++) {
-            cp[table.rows[i].cells[1].textContent] = [];
+            catPrice[table.rows[i].cells[1].textContent] = [];
         }
 
         //добавляю цены в массивы категорий из таблицы
         for (let i = 0; i < table.rows.length; i++) {
-            cp[table.rows[i].cells[1].textContent].push(Number(table.rows[i].cells[2].textContent));
+            catPrice[table.rows[i].cells[1].textContent].push(Number(table.rows[i].cells[2].textContent));
         }
 
         result = {};//создаю объект, где будут храниться суммированные категории
         //свойства объекта - вычисленные из таблицы названия категорий, значение свойств - сумма массивов категорий
         for (let i = 0; i < table.rows.length; i++) {
-            result[table.rows[i].cells[1].textContent] = cp[table.rows[i].cells[1].textContent].reduce(function (sum, current) {
+            result[table.rows[i].cells[1].textContent] = catPrice[table.rows[i].cells[1].textContent].reduce(function (sum, current) {
                 return sum + current
             });
         }
@@ -109,16 +109,16 @@ button.addEventListener('click', () => {
 
             //!вычисляю самую дорогую категорию
             for (let i = 0; i < table.rows.length; i++) {
-                cp[table.rows[i].cells[1].textContent] = [];
+                catPrice[table.rows[i].cells[1].textContent] = [];
             }
 
             for (let i = 0; i < table.rows.length; i++) {
-                cp[table.rows[i].cells[1].textContent].push(Number(table.rows[i].cells[2].textContent));
+                catPrice[table.rows[i].cells[1].textContent].push(Number(table.rows[i].cells[2].textContent));
             }
 
             result = {};
             for (let i = 0; i < table.rows.length; i++) {
-                result[table.rows[i].cells[1].textContent] = cp[table.rows[i].cells[1].textContent].reduce(function (sum, current) {
+                result[table.rows[i].cells[1].textContent] = catPrice[table.rows[i].cells[1].textContent].reduce(function (sum, current) {
                     return sum + current
                 });
             }
