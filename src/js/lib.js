@@ -19,3 +19,5 @@ export function findMaxCatName(object) {
     }
     return maxCatName;
 }
+
+

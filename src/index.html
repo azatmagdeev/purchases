@@ -21,77 +21,15 @@
     <div class="container">
         <div class="row">
             <!-- MAIN -->
-            <main class="col-md-8 col-lg-9">
-                <div class="container">
-                    <div class="row">
-                        <div class="col mt-3"><h1>Purchases List</h1></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-sm-3"><input type="text" class="form-control" placeholder="name" id="name"
-                                                     autofocus required></div>
-                        <div class="col3-sm-3"><input type="text" class="form-control" placeholder="category" id="cat"
-                                                      required></div>
-                        <div class="col-sm-3"><input type="number" class="form-control" placeholder="price" id="price"
-                                                     autofocus required></div>
+            <main id="widget" class="col-md-8 col-lg-9">
 
-                        <div class="col-sm-3">
-                            <button class="btn btn-block btn-primary" id="add">Add</button>
-                        </div>
-                    </div>
-                </div>
-                <table class="table table-striped mt-3">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody id="table">
 
-                    <!-- there will be a purchases table-->
-
-                    </tbody>
-                </table>
             </main>
             <!-- ASIDE -->
             <div class="col-md-4 col-lg-3">
-                <div class="row">
+                <div id="stats" class="row">
                     <!-- ASIDE #1 -->
-                    <aside class="col-sm-6 col-md-12">
-                        <table class="table table-bordered">
-                            <tbody>
-                            <tr>
-                                <td colspan="3"><b>Most expensive purchase:</b></td>
-                            </tr>
-                            <tr id="mostExpPur">
-                                <td></td>
-                                <td></td>
-                                <td align="right">0</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"><b>Most expensive category:</b></td>
-                            </tr>
-                            <tr id="mostExpCat">
-                                <td colspan="2"></td>
-                                <td align="right">0</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3"><b>Stats:</b></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">Total</td>
-                                <td colspan="1" id="total" align="right">0</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">Count</td>
-                                <td id="count" align="right">0</td>
-                            </tr>
-                            </tbody>
-                        </table>
 
-                    </aside>
                     <!-- ASIDE #2 -->
                     <aside class="col-sm-6 col-md-12">
 
