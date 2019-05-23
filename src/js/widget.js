@@ -105,8 +105,7 @@ export class PurchasesWidget {
             this.cat.value,
             this.price.value);
 
-        this.purchases.push(ncp); //добавляю в массив объектов
-        // console.log(this.purchases);
+        this.purchases.push(ncp);
 
         this.name.value = this.cat.value = this.price.value = '';
 
@@ -119,28 +118,26 @@ export class PurchasesWidget {
         for (const purchase of this.purchases) {
 
             const tr = document.createElement('tr');
-            this.table.appendChild(tr);//создаю новую строку в таблице
+            this.table.appendChild(tr);
 
             const tName = document.createElement("td");
             tName.textContent = purchase.name;
-            tr.appendChild(tName); //вывожу имя в строке
+            tr.appendChild(tName);
 
             const tCat = document.createElement('td');
             tCat.textContent = purchase.cat;
-            tr.appendChild(tCat);//вывожу категорию в строке
+            tr.appendChild(tCat);
 
             const tPrice = document.createElement('td');
             tPrice.textContent = purchase.price;
-            tr.appendChild(tPrice);//вывожу цену в строке
+            tr.appendChild(tPrice);
 
             const xBtn = document.createElement('button');
             xBtn.innerHTML = `<b>X</b>`;
             xBtn.className = "btn btn-warning btn-sm float-right";
             tr.appendChild(xBtn);
             xBtn.addEventListener('click', () => {
-                // console.log(this.purchases.indexOf(purchase));
                 this.purchases.splice(this.purchases.indexOf(purchase), 1);
-                // console.log(this.purchases);
                 this.createTable();
             });
 
@@ -153,11 +150,7 @@ export class PurchasesWidget {
                 upBtn.addEventListener('click', () => {
                     const newPos = this.purchases.indexOf(purchase) - 1;
                     const moved = this.purchases.splice(this.purchases.indexOf(purchase), 1);
-                    // console.log(this.purchases.indexOf(purchase));
-                    // console.log(moved[0]);
-                    // this.createTable();
                     this.purchases.splice(newPos, 0, moved[0]);
-                    // // console.log(this.purchases);
                     this.createTable();
                 });
             }
@@ -171,50 +164,63 @@ export class PurchasesWidget {
                 downBtn.addEventListener('click', () => {
                     const newPos = this.purchases.indexOf(purchase) + 1;
                     const moved = this.purchases.splice(this.purchases.indexOf(purchase), 1);
-                    // console.log(this.purchases.indexOf(purchase));
-                    // console.log(moved[0]);
-                    // this.createTable();
                     this.purchases.splice(newPos, 0, moved[0]);
-                    // // console.log(this.purchases);
                     this.createTable();
                 });
             }
 
 
         }
+        this.calculateCount();
+        this.calculateTotal();
+        this.findExpPur();
+        this.findExpCat();
+    }
 
-        this.count.textContent = this.purchases.length;
 
+    calculateCount() {
+        this.count.textContent = String(this.purchases.length);
+    }
+
+    calculateTotal() {
         const prices = [];
         for (let i = 0; i < this.purchases.length; i++) {
             prices.push(this.purchases[i].price)
         }
-        // console.log(prices);
         let sum = 0;
         prices.forEach(num => sum += Number(num));
         this.total.textContent = sum;
+    }
 
-        const sorted = [...this.purchases];
-        console.log(sorted);//копирую массив для сортировки
-        sorted.sort((a, b) => b.price - a.price);//сортирую по цене
-        //вывожу наибольший объект
-        this.mostExpPur.children[0].textContent = sorted[0].name;
-        this.mostExpPur.children[1].textContent = sorted[0].cat;
-        this.mostExpPur.children[2].textContent = sorted[0].price;
-        // this.mostExpPur.textContent =
+    findExpPur() {
+        if (this.purchases.length !== 0) {
+            const sorted = [...this.purchases];
+            console.log(sorted);
+            sorted.sort((a, b) => b.price - a.price);
+            this.mostExpPur.children[0].textContent = sorted[0].name;
+            this.mostExpPur.children[1].textContent = sorted[0].cat;
+            this.mostExpPur.children[2].textContent = sorted[0].price;
+        }
+        if (this.purchases.length === 0) {
+            this.mostExpPur.children[1].textContent = '';
+            this.mostExpPur.children[2].textContent = '0';
+            this.mostExpPur.children[0].textContent = '';
+            this.mostExpCat.children[0].textContent = '';
+            this.mostExpCat.children[1].textContent = '0';
+        }
 
+    }
+
+    findExpCat() {
         const catPrice = {};
         for (let i = 0; i < this.purchases.length; i++) {
             catPrice[this.purchases[i].cat] = [];
         }
-
-        //добавляю цены в массивы категорий из таблицы
         for (let i = 0; i < this.purchases.length; i++) {
             catPrice[this.purchases[i].cat].push(Number(this.purchases[i].price));
         }
 
-        const result = {};//создаю объект, где будут храниться суммированные категории
-        //свойства объекта - вычисленные из таблицы названия категорий, значение свойств - сумма массивов категорий
+        const result = {};
         for (let i = 0; i < this.purchases.length; i++) {
             result[this.purchases[i].cat] = catPrice[this.purchases[i].cat].reduce(function (sum, num) {
                 return sum + num
@@ -223,15 +229,5 @@ export class PurchasesWidget {
 
         this.mostExpCat.children[0].textContent = findMaxCatName(result);
         this.mostExpCat.children[1].textContent = String(findMaxCat(result));
-
-        if (this.purchases.length === 0) {
-            mostExpPur.children[0].textContent = '';
-            mostExpPur.children[1].textContent = '';
-            mostExpPur.children[2].textContent = '0';
-            mostExpCat.children[0].textContent = '';
-            mostExpCat.children[1].textContent = '0';
-        }
     }
-
-
 }
