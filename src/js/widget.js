@@ -195,7 +195,6 @@ export class PurchasesWidget {
     findExpPur() {
         if (this.purchases.length !== 0) {
             const sorted = [...this.purchases];
-            console.log(sorted);
             sorted.sort((a, b) => b.price - a.price);
             this.mostExpPur.children[0].textContent = sorted[0].name;
             this.mostExpPur.children[1].textContent = sorted[0].cat;
