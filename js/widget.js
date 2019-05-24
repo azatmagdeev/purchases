@@ -17,7 +17,7 @@ export class PurchasesWidget {
                     <div class="row mt-3">
                         <div class="col-sm-3"><input type="text" class="form-control" placeholder="name" id="name"
                                                      autofocus required></div>
-                        <div class="col3-sm-3"><input type="text" class="form-control" placeholder="category" id="cat"
+                        <div class="col-sm-3"><input type="text" class="form-control" placeholder="category" id="cat"
                                                       required></div>
                         <div class="col-sm-3"><input type="number" class="form-control" placeholder="price" id="price"
                                                      autofocus required></div>
