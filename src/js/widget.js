@@ -61,25 +61,25 @@ export class PurchasesWidget {
                             <tr id="mostExpPur">
                                 <td></td>
                                 <td></td>
-                                <td align="right">0</td>
+                                <td style="text-align:right">0</td>
                             </tr>
                             <tr>
                                 <td colspan="3"><b>Most expensive category:</b></td>
                             </tr>
                             <tr id="mostExpCat">
                                 <td colspan="2"></td>
-                                <td align="right">0</td>
+                                <td style="text-align:right">0</td>
                             </tr>
                             <tr>
                                 <td colspan="3"><b>Stats:</b></td>
                             </tr>
                             <tr>
                                 <td colspan="2">Total</td>
-                                <td colspan="1" id="total" align="right">0</td>
+                                <td colspan="1" id="total" style="text-align:right">0</td>
                             </tr>
                             <tr>
                                 <td colspan="2">Count</td>
-                                <td id="count" align="right">0</td>
+                                <td id="count" style="text-align:right">0</td>
                             </tr>
                             </tbody>
                         </table>
@@ -211,17 +211,17 @@ export class PurchasesWidget {
     }
 
     findExpCat() {
-        const catPrice = {};
+        const catsObject = {};
         for (let i = 0; i < this.purchases.length; i++) {
-            catPrice[this.purchases[i].cat] = [];
+            catsObject[this.purchases[i].cat] = [];
         }
         for (let i = 0; i < this.purchases.length; i++) {
-            catPrice[this.purchases[i].cat].push(Number(this.purchases[i].price));
+            catsObject[this.purchases[i].cat].push(Number(this.purchases[i].price));
         }
 
         const result = {};
         for (let i = 0; i < this.purchases.length; i++) {
-            result[this.purchases[i].cat] = catPrice[this.purchases[i].cat].reduce(function (sum, num) {
+            result[this.purchases[i].cat] = catsObject[this.purchases[i].cat].reduce(function (sum, num) {
                 return sum + num
             });
         }
