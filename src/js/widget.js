@@ -1,4 +1,5 @@
 import {findMaxCat, findMaxCatName} from "./lib.js";
+import {Purchase} from "./lib.js";
 
 export class PurchasesWidget {
     constructor(parent, parent2) {
@@ -92,13 +93,6 @@ export class PurchasesWidget {
     }
 
     onAdd() {
-        class Purchase {
-            constructor(name, cat, price) {
-                this.name = name;
-                this.cat = cat;
-                this.price = Number(price);
-            };
-        }
 
         const ncp = new Purchase(
             this.name.value,
@@ -176,7 +170,6 @@ export class PurchasesWidget {
         this.findExpPur();
         this.findExpCat();
     }
-
 
     calculateCount() {
         this.count.textContent = String(this.purchases.length);
