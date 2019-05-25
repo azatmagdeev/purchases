@@ -20,4 +20,11 @@ export function findMaxCatName(object) {
     return maxCatName;
 }
 
+export class Purchase {
+    constructor(name, cat, price) {
+        this.name = name;
+        this.cat = cat;
+        this.price = Number(price);
+    };
+}
 
