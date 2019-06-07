@@ -2,15 +2,15 @@ import {findMaxCat, findMaxCatName} from "./lib.js";
 import {Purchase} from "./lib.js";
 
 export class PurchasesWidget {
-    constructor(parent, parent2) {
-        this.parent = parent;
-        this.parent2 = parent2;
+    constructor(mainEl, asideEl) {
+        this.mainEl = mainEl;
+        this.asideEl = asideEl;
         this.purchases = [];
         this.init();
     }
 
     init() {
-        this.parent.innerHTML = `
+        this.mainEl.innerHTML = `
           <div class="container">
                     <div class="row">
                         <div class="col mt-3"><h1>Purchases List</h1></div>
@@ -53,7 +53,7 @@ export class PurchasesWidget {
             this.onAdd()
         });
         this.table = document.getElementById('table');
-        this.parent2.innerHTML = `<aside class="col-sm-6 col-md-12">
+        this.asideEl.innerHTML = `<aside class="col-sm-6 col-md-12">
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
